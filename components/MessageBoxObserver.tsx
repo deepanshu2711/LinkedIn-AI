@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
 
-export const MessageBoxObserver = () => {
+interface MessageBoxObserverProps {
+  handleIconClick: (isOpen: boolean) => void;
+}
+
+export const MessageBoxObserver = ({
+  handleIconClick,
+}: MessageBoxObserverProps) => {
   const [messageBox, setMessageBox] = useState<Element | null>(null);
 
   useEffect(() => {
@@ -23,9 +29,12 @@ export const MessageBoxObserver = () => {
           Icon.style.position = "absolute";
           Icon.style.bottom = "3px";
           Icon.style.right = "5px";
+          Icon.style.cursor = "pointer";
 
           newDiv.appendChild(Icon);
           messagebox.appendChild(newDiv);
+
+          Icon.addEventListener("click", () => handleIconClick(true));
         }
       }
     });
