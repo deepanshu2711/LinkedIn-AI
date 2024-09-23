@@ -7,7 +7,12 @@ export default defineConfig({
     web_accessible_resources: [
       {
         matches: ["https://www.linkedin.com/*"],
-        resources: ["/icon/ai-icon.svg", "/icon/generate-icon.svg"],
+        resources: [
+          "/icon/ai-icon.svg",
+          "/icon/generate-icon.svg",
+          "/icon/regenerate-icon.svg",
+          "/icon/insert-icon.svg",
+        ],
       },
     ],
   },
